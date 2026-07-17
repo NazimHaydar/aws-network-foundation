@@ -6,11 +6,11 @@ terraform {
     }
   }
   backend "s3" {
-    bucket         = "nazim-terraform-state-11"
-    key            = "project1/terraform.tfstate"
-    region         = "eu-north-1"
+    bucket       = "nazim-terraform-state-11"
+    key          = "project1/terraform.tfstate"
+    region       = "eu-north-1"
     use_lockfile = true
-    encrypt        = true
+    encrypt      = true
   }
 }
 
@@ -28,9 +28,9 @@ resource "aws_vpc" "main" {
 
 resource "aws_subnet" "public" {
   vpc_id                  = aws_vpc.main.id
-  cidr_block               = "10.0.1.0/24"
-  availability_zone        = "us-east-1a"
-  map_public_ip_on_launch  = true
+  cidr_block              = "10.0.1.0/24"
+  availability_zone       = "us-east-1a"
+  map_public_ip_on_launch = true
 
   tags = {
     Name = "project1-public-subnet"
